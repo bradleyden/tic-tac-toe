@@ -10,6 +10,8 @@ const emptySpaces = function (value) {
   return value === null
 }
 
+let isPlayerOne = true
+
 let gameOver = false
 
 const checkMatch = function () {
@@ -42,6 +44,7 @@ const placeX = function (space) {
     gameBoard[space] = 1
     console.log(gameBoard)
     checkRowFull()
+    isPlayerOne = !isPlayerOne
   } else {
     console.log('Space not empty!')
   }
@@ -52,6 +55,7 @@ const placeO = function (space) {
     gameBoard[space] = 2
     console.log(gameBoard)
     checkRowFull()
+    isPlayerOne = !isPlayerOne
   } else {
     console.log('Space not empty!')
   }
@@ -95,5 +99,6 @@ module.export = {
   checkRowFull,
   fullRow,
   placeX,
-  placeO
+  placeO,
+  isPlayerOne
 }
