@@ -1,14 +1,16 @@
 'use strict'
 
-const engine = require('./engine')
+// const engine = require('./engine')
 
-const onClick = function (space) {
+const onClick = function () {
   console.log('test')
   // if (engine.isPlayerOne) {
   //   engine.placeX(space)
   // } else {
-  //   engine.placeY(space)
+  //   engine.placeO(space)
   // }
 }
 
-module.export = onClick
+module.exports = {
+  onClick
+}

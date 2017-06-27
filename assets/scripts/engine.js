@@ -92,7 +92,7 @@ const checkRowFull = function () {
   }
 }
 
-module.export = {
+module.exports = {
   gameBoard,
   checkMatch,
   fillRow,
@@ -100,5 +100,7 @@ module.export = {
   fullRow,
   placeX,
   placeO,
-  isPlayerOne
+  isPlayerOne,
+  emptySpaces,
+  gameOver
 }
