@@ -42,6 +42,7 @@ const fillRow = function (slot1, slot2, slot3) {
 const placeX = function (space) {
   if (!gameBoard[space]) {
     gameBoard[space] = 1
+    $('.img' + space).attr('src', 'http://i.imgur.com/hzyUO3c.png')
     console.log(gameBoard)
     checkRowFull()
     isPlayerOne = !isPlayerOne
@@ -53,6 +54,7 @@ const placeX = function (space) {
 const placeO = function (space) {
   if (!gameBoard[space]) {
     gameBoard[space] = 2
+    $('.img' + space).attr('src', 'http://i.imgur.com/YLJbqbr.png')
     console.log(gameBoard)
     checkRowFull()
     isPlayerOne = !isPlayerOne
@@ -92,7 +94,7 @@ const checkRowFull = function () {
   }
 }
 
-module.export = {
+module.exports = {
   gameBoard,
   checkMatch,
   fillRow,
