@@ -1,6 +1,9 @@
 'use strict'
 
 const engine = require('./engine')
+const getFormFields = require(`../../lib/get-form-fields`)
+const api = require('./api')
+const ui = require('./ui')
 
 const onClick0 = function () {
   if (engine.playerOneCheck()) {
@@ -74,14 +77,55 @@ const onClick8 = function () {
   }
 }
 
+const onSignUp = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.signUp(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
+}
+
+const onSignIn = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
+
+const onChangePassword = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
+}
+
+const onSignOut = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.signOut(data)
+    .then(ui.signOutSuccess)
+    .catch(ui.signInFailure)
+}
+
+const addHandlers = () => {
+  $('.space0').on('click', onClick0)
+  $('.space1').on('click', onClick1)
+  $('.space2').on('click', onClick2)
+  $('.space3').on('click', onClick3)
+  $('.space4').on('click', onClick4)
+  $('.space5').on('click', onClick5)
+  $('.space6').on('click', onClick6)
+  $('.space7').on('click', onClick7)
+  $('.space8').on('click', onClick8)
+  $('.reset-button').on('click', engine.resetGame)
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
+  $('#change-pw').on('submit', onChangePassword)
+  $('#sign-out').on('submit', onSignOut)
+}
+
 module.exports = {
-  onClick0,
-  onClick1,
-  onClick2,
-  onClick3,
-  onClick4,
-  onClick5,
-  onClick6,
-  onClick7,
-  onClick8
+  addHandlers
 }
