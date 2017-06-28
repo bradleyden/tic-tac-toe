@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./events')
+const engine = require('./engine')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -20,6 +21,7 @@ $(() => {
   $('.space6').on('click', events.onClick6)
   $('.space7').on('click', events.onClick7)
   $('.space8').on('click', events.onClick8)
+  $('.reset-button').on('click', engine.resetGame)
 })
 // use require without a reference to ensure a file is bundle
 require('./example')
