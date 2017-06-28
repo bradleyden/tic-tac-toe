@@ -118,7 +118,7 @@ const checkRowFull = function () {
     fillRow(6, 4, 2)
   }
   if (!gameOver) {
-    checkCatsGame
+    checkCatsGame()
   }
 }
 
