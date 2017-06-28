@@ -4,3 +4,35 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .box {
   border: 1px solid black;
 }
+
+body {
+  background-color: #f9f9f9;
+}
+
+.main-wrapper {
+  margin: 40px auto;
+  max-width: 650px;
+  line-height: 1.6;
+  font-size: 18px;
+  color: #444;
+  padding: 0 10px;
+}
+
+.display-board {
+  font-size: 24px;
+  color: #216778;
+}
+
+.login-status {
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #93aca7;
+}
+
+.btn {
+  background-color: #216778;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 9px;
+  margin: 3px 0;
+}

@@ -119,7 +119,7 @@ const addHandlers = () => {
   $('.space6').on('click', onClick6)
   $('.space7').on('click', onClick7)
   $('.space8').on('click', onClick8)
-  $('.reset-button').on('click', engine.resetGame)
+  $('#reset-button').on('click', engine.resetGame)
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-pw').on('submit', onChangePassword)

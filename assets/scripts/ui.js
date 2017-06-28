@@ -12,7 +12,7 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (data) => {
   store.user = data.user
-  $('.login-status').html('<form id="sign-out"><fieldset><input type="submit" name="submit" value="Sign Out"></fieldset></form>  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePwModal">Change Password</button>')
+  $('.login-status').html('<form id="sign-out"><fieldset><input type="submit" class="btn btn-primary btn-lg" name="submit" value="Sign Out"></fieldset></form><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePwModal">Change Password</button>')
   $('.login-status').prepend('Hello, ' + data.user.email)
   console.log(data)
 }

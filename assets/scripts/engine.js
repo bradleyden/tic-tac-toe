@@ -1,10 +1,24 @@
 'use strict'
 
+const blankToken = 'http://i.imgur.com/aXEZ7g0.png'
+const xToken = 'http://i.imgur.com/hzyUO3c.png'
+const oToken = 'http://i.imgur.com/YLJbqbr.png'
+
 const gameBoard = [
   null, null, null,
   null, null, null,
   null, null, null
 ]
+
+const updateImages = function () {
+  for (let i = 0; i < gameBoard.length; i++) {
+    if (gameBoard[i] === 1) {
+      $('.img' + i).attr('src', xToken)
+    } else if (gameBoard[i] === 2) {
+      $('.img' + i).attr('src', oToken)
+    }
+  }
+}
 
 const emptySpaces = function (value) {
   return value === null
@@ -28,7 +42,7 @@ const resetGame = function () {
   $('.display-board').text('')
   for (let i = 0; i < gameBoard.length; i++) {
     gameBoard[i] = null
-    $('.img' + i).attr('src', 'http://i.imgur.com/aXEZ7g0.png')
+    $('.img' + i).attr('src', blankToken)
   }
   console.log(gameBoard)
 }
@@ -67,7 +81,7 @@ const fillRow = function (slot1, slot2, slot3) {
 const placeX = function (space) {
   if (!gameBoard[space] && !gameOver) {
     gameBoard[space] = 1
-    $('.img' + space).attr('src', 'http://i.imgur.com/hzyUO3c.png')
+    $('.img' + space).attr('src', xToken)
     isPlayerOne += 1
     checkRowFull()
   } else {
@@ -78,7 +92,7 @@ const placeX = function (space) {
 const placeO = function (space) {
   if (!gameBoard[space] && !gameOver) {
     gameBoard[space] = 2
-    $('.img' + space).attr('src', 'http://i.imgur.com/YLJbqbr.png')
+    $('.img' + space).attr('src', oToken)
     isPlayerOne += 1
     checkRowFull()
   } else {
@@ -132,5 +146,6 @@ module.exports = {
   placeO,
   resetGame,
   playerOneCheck,
-  checkCatsGame
+  checkCatsGame,
+  updateImages
 }
