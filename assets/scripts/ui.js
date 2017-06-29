@@ -37,7 +37,36 @@ const signOutSuccess = (data) => {
 const signOutFailure = (error) => {
   console.log('could not sign out: ', error)
 }
+let currentGame
 
+const createGameSuccess = (data) => {
+  console.log('New game created: ', data)
+  currentGame = data.game
+}
+
+const getCurrentGame = function () {
+  return currentGame.id
+}
+
+const createGameFailure = (error) => {
+  console.log('could not sign out: ', error)
+}
+
+const loadGamesSuccess = (data) => {
+  console.table(data.games)
+}
+
+const loadGamesFailure = (error) => {
+  console.log('could not sign out: ', error)
+}
+
+const updateGameSuccess = (data) => {
+  $('.game-info').text('Game ' + data.game.cells)
+}
+
+const updateGameFailure = (error) => {
+  console.log('could not sign out: ', error)
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -46,5 +75,12 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  createGameSuccess,
+  createGameFailure,
+  loadGamesSuccess,
+  loadGamesFailure,
+  updateGameSuccess,
+  updateGameFailure,
+  getCurrentGame
 }

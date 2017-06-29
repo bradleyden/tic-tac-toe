@@ -1,5 +1,7 @@
 'use strict'
 
+const api = require('./api')
+
 const blankToken = 'http://i.imgur.com/aXEZ7g0.png'
 const xToken = 'http://i.imgur.com/hzyUO3c.png'
 const oToken = 'http://i.imgur.com/YLJbqbr.png'
@@ -48,8 +50,6 @@ const resetGame = function () {
 }
 
 const checkMatch = function () {
-  console.log(fullRow)
-  console.log(gameBoard)
   if (fullRow.length === 3 && fullRow[0] === fullRow[1] && fullRow[0] === fullRow[2]) {
     console.log('Game should end here')
     gameOver = true
@@ -136,6 +136,10 @@ const checkRowFull = function () {
   }
 }
 
+const gameStatus = function () {
+  return gameOver
+}
+
 module.exports = {
   gameBoard,
   checkMatch,
@@ -147,5 +151,6 @@ module.exports = {
   resetGame,
   playerOneCheck,
   checkCatsGame,
-  updateImages
+  updateImages,
+  gameStatus
 }
