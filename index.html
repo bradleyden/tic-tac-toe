@@ -16,18 +16,31 @@
 <body class="container-fluid">
 
   <div class="login-status">
-    <form id="sign-in">
-      <fieldset>
-        <input type='text' placeholder='Email' name='credentials[email]'>
-        <input type='password' placeholder='Password' name='credentials[password]'>
-        <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Sign in!">
-      </fieldset>
-    </form>
-    <p>Don't have an account?</p>
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUpModal">
+    <div class="logged-out">
+      <div class="game-count">
+      </div>
+      <form id="sign-in">
+        <fieldset>
+          <input type='text' placeholder='Email' name='credentials[email]'>
+          <input type='password' placeholder='Password' name='credentials[password]'>
+          <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Sign in!">
+        </fieldset>
+      </form>
+      <p>Don't have an account?</p>
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUpModal">
     Sign Up!
     </button>
   </div>
+
+  <div class="logged-in">
+    <form id="sign-out">
+      <fieldset>
+        <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Sign Out">
+      </fieldset>
+    </form>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePwModal">Change Password</button>
+  </div>
+</div>
 
   <!-- Modal -->
   <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -46,10 +59,6 @@
               <input type="submit" name="submit" value="Sign up!">
             </fieldset>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -71,52 +80,48 @@
             </fieldset>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
       </div>
     </div>
   </div>
 
-<div class='main-wrapper'>
-  <form id="create-game">
-    <fieldset>
-      <input type="submit" class="btn btn-primary" name="submit" value="Start New Game">
-    </fieldset>
-  </form>
-  <form id="load-game">
-    <fieldset>
-      <input type="submit" class="btn btn-primary" name="submit" value="Current Games">
-    </fieldset>
-  </form>
-  <h1>Tic-Tac-Toe</h1>
+  <div class='main-wrapper'>
+    <h1>Tic-Tac-Toe</h1>
 
-  <p>Rules</p>
+    <p class='instructions'>Welcome to Tic-Tac-Toe! Please sign in or sign up to start playing!</p>
 
-  <div class="container">
-    <div class="game-info"></div>
+    <button type="button" class="btn btn-primary btn-lg" id="create-game">
+    Create New Game
+    </button>
 
-    <div class="display-board"></div>
+    <button type="button" class="btn btn-primary btn-lg" id="load-game">
+    Current Games
+    </button>
 
-    <div class="row">
-      <div class="space0 col-xs-4 col-sm-3 col-lg-2 box"><img class="img0" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-      <div class="space1 col-xs-4 col-sm-3 col-lg-2 box"><img class="img1" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-      <div class="space2 col-xs-4 col-sm-3 col-lg-2 box"><img class="img2" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-    </div>
-    <div class="row">
-      <div class="space3 col-xs-4 col-sm-3 col-lg-2 box"><img class="img3" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-      <div class="space4 col-xs-4 col-sm-3 col-lg-2 box"><img class="img4" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-      <div class="space5 col-xs-4 col-sm-3 col-lg-2 box"><img class="img5" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-    </div>
-    <div class="row">
-      <div class="space6 col-xs-4 col-sm-3 col-lg-2 box"><img class="img6" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-      <div class="space7 col-xs-4 col-sm-3 col-lg-2 box"><img class="img7" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-      <div class="space8 col-xs-4 col-sm-3 col-lg-2 box"><img class="img8" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+    <div class="container" id="game-board">
+      <div class="game-info"></div>
+
+      <div class="display-board"></div>
+
+      <div class="row">
+        <div class="space0 col-xs-4 col-sm-3 col-lg-2 box"><img class="img0" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space1 col-xs-4 col-sm-3 col-lg-2 box"><img class="img1" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space2 col-xs-4 col-sm-3 col-lg-2 box"><img class="img2" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+      </div>
+      <div class="row">
+        <div class="space3 col-xs-4 col-sm-3 col-lg-2 box"><img class="img3" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space4 col-xs-4 col-sm-3 col-lg-2 box"><img class="img4" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space5 col-xs-4 col-sm-3 col-lg-2 box"><img class="img5" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+      </div>
+      <div class="row">
+        <div class="space6 col-xs-4 col-sm-3 col-lg-2 box"><img class="img6" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space7 col-xs-4 col-sm-3 col-lg-2 box"><img class="img7" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space8 col-xs-4 col-sm-3 col-lg-2 box"><img class="img8" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+      </div>
     </div>
   </div>
+  <!-- </div>
   <button id='reset-button' class="btn btn-default">Reset</button>
-</div>
+</div> -->
 </body>
 
 </html>

@@ -5,16 +5,18 @@ const store = require('./store')
 const signUpSuccess = (data) => {
   console.log(data)
 }
-
 const signUpFailure = (error) => {
   console.error(error)
 }
 
 const signInSuccess = (data) => {
   store.user = data.user
-  $('.login-status').html('<form id="sign-out"><fieldset><input type="submit" class="btn btn-primary btn-lg" name="submit" value="Sign Out"></fieldset></form><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePwModal">Change Password</button>')
-  $('.login-status').prepend('Hello, ' + data.user.email)
-  console.log(data)
+  $('.logged-out').hide()
+  $('.logged-in').show()
+  $('.logged-in').prepend('Hello, ' + data.user.email)
+  $('#create-game').show(400)
+  $('#load-game').show(400)
+  $('.instructions').text('Start a new game, or select one you\'ve already started!')
 }
 
 const signInFailure = (error) => {
@@ -30,17 +32,24 @@ const changePasswordFailure = (error) => {
 }
 
 const signOutSuccess = (data) => {
-  $('.login-status').html("<form id='sign-in'><fieldset><input type='text' placeholder='Email' name='credentials[email]'><input type='password' placeholder='Password' name='credentials[password]'><input type='submit' name='submit' value='Sign in!'></fieldset></form><button type='button' class='btn btn-primary btn-lg' data-toggle='modal' data-target='#signUpModal'>Sign Up!</button>")
+  $('#create-game').hide()
+  $('#load-game').hide()
+  $('.logged-in').hide()
+  $('.logged-out').show()
+  $('#game-board').hide()
   console.log('Successfully signed out')
 }
 
 const signOutFailure = (error) => {
   console.log('could not sign out: ', error)
 }
+
 let currentGame
 
 const createGameSuccess = (data) => {
-  console.log('New game created: ', data)
+  $('#game-board').show(400)
+  $('.instructions').text('Try to get 3 in a row! Good luck!')
+  console.log(data.game.id)
   currentGame = data.game
 }
 
@@ -53,7 +62,8 @@ const createGameFailure = (error) => {
 }
 
 const loadGamesSuccess = (data) => {
-  console.table(data.games)
+  console.log(data.games.length)
+  $('.game-count').text('You have played ' + data.games.length + ' games!')
 }
 
 const loadGamesFailure = (error) => {
@@ -61,12 +71,13 @@ const loadGamesFailure = (error) => {
 }
 
 const updateGameSuccess = (data) => {
-  $('.game-info').text('Game ' + data.game.cells)
+  console.log('Game Updated')
 }
 
 const updateGameFailure = (error) => {
   console.log('could not sign out: ', error)
 }
+
 module.exports = {
   signUpSuccess,
   signUpFailure,

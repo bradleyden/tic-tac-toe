@@ -3,8 +3,8 @@
 const api = require('./api')
 
 const blankToken = 'http://i.imgur.com/aXEZ7g0.png'
-const xToken = 'http://i.imgur.com/hzyUO3c.png'
-const oToken = 'http://i.imgur.com/YLJbqbr.png'
+const xToken = 'http://i.imgur.com/PCiT6ja.png'
+const oToken = 'http://i.imgur.com/7vRf0Q7.png'
 
 const gameBoard = [
   null, null, null,

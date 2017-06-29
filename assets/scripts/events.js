@@ -18,156 +18,147 @@ const pushUpdate = {
 const update = api.updateGame
 
 const onClick0 = function () {
-  if (engine.gameStatus()) {
-    pushUpdate.game.over = true
-  }
   if (engine.playerOneCheck()) {
     engine.placeX(0)
     pushUpdate.game.cell.index = 0
     pushUpdate.game.cell.value = "x"
-    update(pushUpdate)
   } else {
     engine.placeO(0)
     pushUpdate.game.cell.index = 0
     pushUpdate.game.cell.value = "o"
-    update(pushUpdate)
   }
-}
-
-const onClick1 = function () {
   if (engine.gameStatus()) {
     pushUpdate.game.over = true
   }
+  update(pushUpdate)
+}
+
+const onClick1 = function () {
   if (engine.playerOneCheck()) {
     engine.placeX(1)
     pushUpdate.game.cell.index = 1
     pushUpdate.game.cell.value = "x"
-    update(pushUpdate)
   } else {
     engine.placeO(1)
     pushUpdate.game.cell.index = 1
     pushUpdate.game.cell.value = "o"
-    update(pushUpdate)
   }
-}
-
-const onClick2 = function () {
   if (engine.gameStatus()) {
     pushUpdate.game.over = true
   }
+  update(pushUpdate)
+}
+
+const onClick2 = function () {
   if (engine.playerOneCheck()) {
     engine.placeX(2)
     pushUpdate.game.cell.index = 2
     pushUpdate.game.cell.value = "x"
-    update(pushUpdate)
   } else {
     engine.placeO(2)
     pushUpdate.game.cell.index = 2
     pushUpdate.game.cell.value = "o"
-    update(pushUpdate)
   }
-}
-
-const onClick3 = function () {
   if (engine.gameStatus()) {
     pushUpdate.game.over = true
   }
+  update(pushUpdate)
+}
+
+const onClick3 = function () {
   if (engine.playerOneCheck()) {
     engine.placeX(3)
     pushUpdate.game.cell.index = 3
     pushUpdate.game.cell.value = "x"
-    update(pushUpdate)
   } else {
     engine.placeO(3)
     pushUpdate.game.cell.index = 3
     pushUpdate.game.cell.value = "o"
-    update(pushUpdate)
   }
-}
-
-const onClick4 = function () {
   if (engine.gameStatus()) {
     pushUpdate.game.over = true
   }
+  update(pushUpdate)
+}
+
+const onClick4 = function () {
   if (engine.playerOneCheck()) {
     engine.placeX(4)
     pushUpdate.game.cell.index = 4
     pushUpdate.game.cell.value = "x"
-    update(pushUpdate)
   } else {
     engine.placeO(4)
     pushUpdate.game.cell.index = 4
     pushUpdate.game.cell.value = "o"
-    update(pushUpdate)
   }
-}
-
-const onClick5 = function () {
   if (engine.gameStatus()) {
     pushUpdate.game.over = true
   }
+  update(pushUpdate)
+}
+
+const onClick5 = function () {
   if (engine.playerOneCheck()) {
     engine.placeX(5)
     pushUpdate.game.cell.index = 5
     pushUpdate.game.cell.value = "x"
-    update(pushUpdate)
   } else {
     engine.placeO(5)
     pushUpdate.game.cell.index = 5
     pushUpdate.game.cell.value = "o"
-    update(pushUpdate)
   }
-}
-
-const onClick6 = function () {
   if (engine.gameStatus()) {
     pushUpdate.game.over = true
   }
+  update(pushUpdate)
+}
+
+const onClick6 = function () {
   if (engine.playerOneCheck()) {
     engine.placeX(6)
     pushUpdate.game.cell.index = 6
     pushUpdate.game.cell.value = "x"
-    update(pushUpdate)
   } else {
     engine.placeO(6)
     pushUpdate.game.cell.index = 6
     pushUpdate.game.cell.value = "o"
-    update(pushUpdate)
   }
-}
-
-const onClick7 = function () {
   if (engine.gameStatus()) {
     pushUpdate.game.over = true
   }
+  update(pushUpdate)
+}
+
+const onClick7 = function () {
   if (engine.playerOneCheck()) {
     engine.placeX(7)
     pushUpdate.game.cell.index = 7
     pushUpdate.game.cell.value = "x"
-    update(pushUpdate)
   } else {
     engine.placeO(7)
     pushUpdate.game.cell.index = 7
     pushUpdate.game.cell.value = "o"
-    update(pushUpdate)
   }
-}
-
-const onClick8 = function () {
   if (engine.gameStatus()) {
     pushUpdate.game.over = true
   }
+  update(pushUpdate)
+}
+
+const onClick8 = function () {
   if (engine.playerOneCheck()) {
     engine.placeX(8)
     pushUpdate.game.cell.index = 8
     pushUpdate.game.cell.value = "x"
-    update(pushUpdate)
   } else {
     engine.placeO(8)
     pushUpdate.game.cell.index = 8
     pushUpdate.game.cell.value = "o"
-    update(pushUpdate)
   }
+  if (engine.gameStatus()) {
+    pushUpdate.game.over = true
+  }
+  update(pushUpdate)
 }
 
 const onSignUp = function (event) {
@@ -199,7 +190,7 @@ const onSignOut = function (event) {
   event.preventDefault()
   api.signOut(data)
     .then(ui.signOutSuccess)
-    .catch(ui.signInFailure)
+    .catch(ui.signOutFailure)
 }
 
 const onNewGame = function (event) {
@@ -207,6 +198,7 @@ const onNewGame = function (event) {
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
+  engine.resetGame()
 }
 
 const onLoadGames = function (event) {
@@ -223,6 +215,13 @@ const onUpdateGame = function (event) {
   .catch(ui.updateGameFailure)
 }
 
+$(() => {
+  $('#game-board').hide()
+  $('#create-game').hide()
+  $('#load-game').hide()
+  $('.logged-in').hide()
+})
+
 const addHandlers = () => {
   $('.space0').on('click', onClick0)
   $('.space1').on('click', onClick1)
@@ -233,13 +232,13 @@ const addHandlers = () => {
   $('.space6').on('click', onClick6)
   $('.space7').on('click', onClick7)
   $('.space8').on('click', onClick8)
-  $('#reset-button').on('click', engine.resetGame)
+  // $('#reset-button').on('click', engine.resetGame)
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-pw').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  $('#create-game').on('submit', onNewGame)
-  $('#load-game').on('submit', onLoadGames)
+  $('#load-game').on('click', onLoadGames)
+  $('#create-game').on('click', onNewGame)
 }
 
 module.exports = {
