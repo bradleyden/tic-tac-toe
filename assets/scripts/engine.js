@@ -1,8 +1,8 @@
 'use strict'
 
-const blankToken = 'http://i.imgur.com/aXEZ7g0.png'
-const xToken = 'http://i.imgur.com/PCiT6ja.png'
-const oToken = 'http://i.imgur.com/7vRf0Q7.png'
+const blankToken = '../images/blankToken.png'
+const xToken = '../images/O-token.png'
+const oToken = '../images/X-token.png'
 
 const gameBoard = [
   null, null, null,
