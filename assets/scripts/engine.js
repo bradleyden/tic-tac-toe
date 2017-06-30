@@ -49,7 +49,6 @@ const resetGame = function () {
 
 const checkMatch = function () {
   if ((fullRow.length >= 3) && (fullRow[0] === fullRow[1]) && (fullRow[0] === fullRow[2])) {
-    console.log(fullRowIndex)
     for (let i = 0; i < gameBoard.length; i++) {
       if ((i !== fullRowIndex[0]) && (i !== fullRowIndex[1]) && (i !== fullRowIndex[2])) {
         gameBoard[i] = null
