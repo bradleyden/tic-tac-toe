@@ -198,6 +198,9 @@ const onNewGame = function (event) {
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
+  api.getAllGames()
+    .then(ui.loadGamesSuccess)
+    .catch(ui.loadGamesFailure)
   engine.resetGame()
 }
 
@@ -232,7 +235,6 @@ const addHandlers = () => {
   $('.space6').on('click', onClick6)
   $('.space7').on('click', onClick7)
   $('.space8').on('click', onClick8)
-  // $('#reset-button').on('click', engine.resetGame)
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-pw').on('submit', onChangePassword)
@@ -243,5 +245,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onUpdateGame
+  onUpdateGame,
+  onLoadGames
 }

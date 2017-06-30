@@ -21,8 +21,6 @@ const signIn = function (data) {
 }
 
 const changePassword = function (data) {
-  console.log(store)
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',
@@ -75,7 +73,6 @@ const getGame = function (data) {
 }
 
 const updateGame = function (data) {
-  console.log(store)
   return $.ajax({
     url: config.apiOrigin + '/games/' + ui.getCurrentGame(),
     method: 'PATCH',

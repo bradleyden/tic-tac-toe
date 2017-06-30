@@ -7,7 +7,7 @@
 
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
+  <link href="https://fonts.googleapis.com/css?family=Acme|Asap" rel="stylesheet">
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -17,12 +17,10 @@
 
   <div class="login-status">
     <div class="logged-out">
-      <div class="game-count">
-      </div>
       <form id="sign-in">
         <fieldset>
-          <input type='text' placeholder='Email' name='credentials[email]'>
-          <input type='password' placeholder='Password' name='credentials[password]'>
+          <input class='text-field' type='text' placeholder='Email' name='credentials[email]'>
+          <input class='text-field' type='password' placeholder='Password' name='credentials[password]'>
           <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Sign in!">
         </fieldset>
       </form>
@@ -33,12 +31,13 @@
   </div>
 
   <div class="logged-in">
+    <div class="greeting"></div>
     <form id="sign-out">
       <fieldset>
         <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Sign Out">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePwModal">Change Password</button>
       </fieldset>
     </form>
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePwModal">Change Password</button>
   </div>
 </div>
 
@@ -53,9 +52,9 @@
         <div class="modal-body">
           <form id="sign-up">
             <fieldset>
-              <input type='text' placeholder='Email' name='credentials[email]'> <br> <br>
-              <input type='password' placeholder='Password' name='credentials[password]'><br> <br>
-              <input type='password' placeholder='Re-enter Password' name='credentials[password_confirmation]'><br><br>
+              <input class='pop-up-fields text-field' type='text' placeholder='Email' name='credentials[email]'> <br> <br>
+              <input class='pop-up-fields text-field' type='password' placeholder='Password' name='credentials[password]'><br> <br>
+              <input class='pop-up-fields text-field' type='password' placeholder='Re-enter Password' name='credentials[password_confirmation]'><br><br>
               <input type="submit" name="submit" value="Sign up!">
             </fieldset>
           </form>
@@ -74,8 +73,8 @@
         <div class="modal-body">
           <form id="change-pw">
             <fieldset>
-              <input type='password' placeholder='Current Password' name='passwords[old]'> <br> <br>
-              <input type='password' placeholder='New Password' name='passwords[new]'><br> <br>
+              <input class='pop-up-fields text-field' type='password' placeholder='Current Password' name='passwords[old]'> <br> <br>
+              <input class='pop-up-fields text-field' type='password' placeholder='New Password' name='passwords[new]'><br> <br>
               <input type="submit" name="submit" value="Change Password">
             </fieldset>
           </form>
@@ -93,35 +92,31 @@
     Create New Game
     </button>
 
-    <button type="button" class="btn btn-primary btn-lg" id="load-game">
-    Current Games
-    </button>
-
     <div class="container" id="game-board">
-      <div class="game-info"></div>
+      <div class="display" id="win-count"></div>
+      <div class="display" id="loss-count"></div>
 
-      <div class="display-board"></div>
+      <div class="display" id="display-board"></div>
 
       <div class="row">
-        <div class="space0 col-xs-4 col-sm-3 col-lg-2 box"><img class="img0" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-        <div class="space1 col-xs-4 col-sm-3 col-lg-2 box"><img class="img1" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-        <div class="space2 col-xs-4 col-sm-3 col-lg-2 box"><img class="img2" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space0 col-xs-4 col-sm-3 col-md-2 box"><img class="img0" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space1 col-xs-4 col-sm-3 col-md-2 box"><img class="img1" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space2 col-xs-4 col-sm-3 col-md-2 box"><img class="img2" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
       </div>
       <div class="row">
-        <div class="space3 col-xs-4 col-sm-3 col-lg-2 box"><img class="img3" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-        <div class="space4 col-xs-4 col-sm-3 col-lg-2 box"><img class="img4" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-        <div class="space5 col-xs-4 col-sm-3 col-lg-2 box"><img class="img5" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space3 col-xs-4 col-sm-3 col-md-2 box"><img class="img3" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space4 col-xs-4 col-sm-3 col-md-2 box"><img class="img4" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space5 col-xs-4 col-sm-3 col-md-2 box"><img class="img5" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
       </div>
       <div class="row">
-        <div class="space6 col-xs-4 col-sm-3 col-lg-2 box"><img class="img6" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-        <div class="space7 col-xs-4 col-sm-3 col-lg-2 box"><img class="img7" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
-        <div class="space8 col-xs-4 col-sm-3 col-lg-2 box"><img class="img8" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space6 col-xs-4 col-sm-3 col-md-2 box"><img class="img6" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space7 col-xs-4 col-sm-3 col-md-2 box"><img class="img7" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
+        <div class="space8 col-xs-4 col-sm-3 col-md-2 box"><img class="img8" src="http://i.imgur.com/aXEZ7g0.png" height=100% width=100% /></div>
       </div>
+      <br><br>
     </div>
   </div>
-  <!-- </div>
-  <button id='reset-button' class="btn btn-default">Reset</button>
-</div> -->
+  <div class="page-bottom">Created By Brad Leyden</div>
 </body>
 
 </html>
