@@ -1,8 +1,8 @@
 'use strict'
 
-const blankToken = '../images/blankToken.png'
-const xToken = '../images/O-token.png'
-const oToken = '../images/X-token.png'
+const blankToken = 'https://raw.githubusercontent.com/bradleyden/tic-tac-toe/master/assets/images/blank-token.png'
+const xToken = 'https://raw.githubusercontent.com/bradleyden/tic-tac-toe/master/assets/images/X-token.png'
+const oToken = 'https://raw.githubusercontent.com/bradleyden/tic-tac-toe/master/assets/images/O-token.png'
 
 const gameBoard = [
   null, null, null,
