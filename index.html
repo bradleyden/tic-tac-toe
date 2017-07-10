@@ -17,6 +17,7 @@
 
   <div class="login-status">
     <div class="logged-out">
+      <div class="signInError"></div>
       <form id="sign-in">
         <fieldset>
           <input class='text-field' type='text' placeholder='Email' name='credentials[email]'>
@@ -56,7 +57,8 @@
               <input class='pop-up-fields text-field' type='password' placeholder='Password' name='credentials[password]'><br> <br>
               <input class='pop-up-fields text-field' type='password' placeholder='Re-enter Password' name='credentials[password_confirmation]'><br><br>
               <input type="submit" name="submit" value="Sign up!">
-            </fieldset>
+            </fieldset><br>
+            <div class="signUpError"></div>
           </form>
         </div>
       </div>
@@ -76,7 +78,8 @@
               <input class='pop-up-fields text-field' type='password' placeholder='Current Password' name='passwords[old]'> <br> <br>
               <input class='pop-up-fields text-field' type='password' placeholder='New Password' name='passwords[new]'><br> <br>
               <input type="submit" name="submit" value="Change Password">
-            </fieldset>
+            </fieldset><br>
+            <div class="changePwError"></div>
           </form>
         </div>
       </div>
