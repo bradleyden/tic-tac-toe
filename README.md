@@ -15,6 +15,24 @@ stats for each unique user.
 Technologies Used:
 HTML, CSS, JavaScript, Bootstrap, AJAX, scss
 
+Wireframes:
+Desktop: http://i.imgur.com/NznsY4r.jpg
+Mobile: http://i.imgur.com/2mVrQjr.jpg?1
+
+User Stories:
+As a new user, I want to have the option to quickly make a new profile
+so I can start playing without a complicated sign up process.
+
+As a returning user, I want to know right away whether I am already
+signed in, so if I need to sign in again I can do that first.
+
+As a returning user, I want to see all of my ongoing games as soon
+as I log in to my profile so I can remember where I left off.
+
+As a returning user, I want my most relevant stats to be displayed
+at all times so I don't have to leave my current game to check my
+win/loss record.
+
 Process:
 First, I built a prototype game engine using just JavaScript and
 node. I ended up with a playable version of tic-tac-toe in my
