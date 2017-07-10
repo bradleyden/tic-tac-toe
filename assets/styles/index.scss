@@ -54,7 +54,10 @@ h1 {
   padding: 5px 9px;
 }
 
-.greeting {
+.greeting,
+.signInError,
+.signUpError,
+.changePwError {
   font-size: 16px;
   color: #216778;
   font-weight: 800;
