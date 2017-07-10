@@ -1,6 +1,5 @@
 'use strict'
 
-
 const blankToken = 'https://raw.githubusercontent.com/bradleyden/tic-tac-toe/master/assets/images/blank-token.png'
 const xToken = 'https://raw.githubusercontent.com/bradleyden/tic-tac-toe/master/assets/images/X-token.png'
 const oToken = 'https://raw.githubusercontent.com/bradleyden/tic-tac-toe/master/assets/images/O-token.png'
